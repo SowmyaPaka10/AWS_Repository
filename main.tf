@@ -7,7 +7,7 @@ provider "aws" {
 #Resource of multiple applications
 
 resource "aws_instance" "multiple_applications" {
-    ami="ami-0fc5d935ebf8bc3bc"
+    ami="ami-01bc990364452ab3e"
     instance_type = "t2.micro"
     vpc_security_group_ids = [aws_security_group.allow_ssh.id]
     tags = {
@@ -18,7 +18,7 @@ resource "aws_instance" "multiple_applications" {
     connection {
     type = "ssh"
     host = self.public_ip
-    user = "ubuntu"
+    user = "ec2-user"
     private_key = file("ubuntu_keypair2")    
  }
 
